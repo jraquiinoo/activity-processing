@@ -19,6 +19,14 @@
 				border-radius: 3px;
 				text-align: center;
 			}
+			
+			.z-depth-0{
+				box-shadow:none;
+			}
+			
+			.transparent{
+				background-color:transparent;
+			}
 		</style>
 	</head>
 	
@@ -157,16 +165,41 @@
 				</div>
 			</div>
 		</main>
-		<a class='btn-floating btn-large waves-effect waves-light blue' style='position:fixed;right:15px;bottom:15px;'><i class='mdi-content-add'></i></a>
+		
+		<div id='create-activity-dialog' class='modal'>
+			<div class='row'>
+				<h4 class='col s12 m8 l10 flow-text'>Create activity</h4>
+				<a class='col s6 m2 l1 black-text waves-effect tooltipped' data-position="bottom" data-delay="50" data-tooltip="Link from GOSM"><i class='mdi-editor-insert-link black-text small'></i></a>	
+				<a class='col s6 m2 l1 black-text waves-effect tooltipped' data-position="bottom" data-delay="50" data-tooltip="Save as draft"><i class='mdi-content-save black-text small'></i></a>	
+			</div>
+			<form>
+				<div class='input-field row'>
+					<input id='activity-title' type='text'/>
+					<label for='activity-title'>Title</label>
+				</div>
+				<div class='input-field row'>
+					<textarea id='activity-description' class="materialize-textarea"></textarea>
+					<label for='activity-description'>Description</label>
+				</div>
+				<div class='row'>
+					<div class='right-align'>
+					<a class='btn-flat waves-effect modal-close'>Cancel</a>
+					<a class='btn waves-effect'>Submit</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class='btn-floating btn-large waves-effect waves-light blue modal-trigger' style='position:fixed;right:15px;bottom:15px;' href='#create-activity-dialog'><i class='mdi-content-add'></i></a>
 		<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="../../bower_components/materialize/dist/js/materialize.min.js"></script>
 		<script>
 			$(document).ready(function(){
-			// Initialize collapse button
-			$(".button-collapse").sideNav();
-			// Initialize collapsible
-			$('.collapsible').collapsible();
-			$(".dropdown-button").dropdown({ hover: false });
+				// Initialize collapse button
+				$(".button-collapse").sideNav();
+				// Initialize collapsible
+				$('.collapsible').collapsible();
+				$(".dropdown-button").dropdown({ hover: false });
+				 $('.modal-trigger').leanModal();
 			});
 			
 		</script>
